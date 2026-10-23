@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jae Hoon Lee · Economics</title>
+<meta name="description" content="Jae Hoon Lee — Ph.D. candidate in Economics at The George Washington University. Macroeconomics: fiscal policy, sovereign debt, growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: fixed left identity column, scrolling research column; stacks on phones */
+  :root {
+    --bg: #fbfaf7;
+    --panel: #f2efe8;
+    --ink: #1c2230;
+    --muted: #5a6172;
+    --rule: #ddd8cc;
+    --accent: #1f4e79;
+    --accent-soft: #e4ecf4;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14171d; --panel:#1b1f27; --ink:#e7e9ee; --muted:#9aa2b2; --rule:#2c3240; --accent:#8cb7e0; --accent-soft:#1f2a38; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif); font-size:18px; line-height:1.6; }
+  a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; }
+  a:hover { text-decoration-thickness:2px; }
+  a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+
+  .wrap { display:grid; grid-template-columns: 300px minmax(0,1fr); gap:56px; max-width:1120px; margin:0 auto; padding:56px max(24px, env(safe-area-inset-right)) 80px max(24px, env(safe-area-inset-left)); }
+  aside { position:sticky; top:40px; align-self:start; font-family:var(--sans); font-size:15px; }
+  aside img { width:100%; max-width:260px; aspect-ratio:5/6; object-fit:cover; border-radius:4px; display:block; }
+  aside h1 { font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.15; margin:22px 0 4px; letter-spacing:-0.01em; }
+  .role { color:var(--muted); margin:0 0 18px; }
+  .badge { display:inline-block; white-space:nowrap; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:5px 10px; border-radius:3px; margin-bottom:18px; }
+  .contact { list-style:none; padding:0; margin:0 0 22px; display:grid; gap:6px; }
+  .contact span { color:var(--muted); display:inline-block; width:62px; }
+  .btn { display:inline-block; font-weight:500; text-decoration:none; border:1px solid var(--accent); color:var(--accent); padding:8px 16px; border-radius:3px; }
+  .btn:hover { background:var(--accent); color:var(--bg); }
+
+  main { min-width:0; max-width:700px; }
+  section { padding:8px 0 30px; border-top:1px solid var(--rule); }
+  section:first-child { border-top:0; padding-top:0; }
+  h2 { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:22px 0 14px; }
+  .lead { font-size:20px; margin:0 0 12px; }
+  .fields { font-family:var(--sans); font-size:15px; color:var(--muted); margin:0; }
+  .fields b { color:var(--ink); font-weight:500; }
+
+  .paper { margin:0 0 28px; }
+  .paper h3 { font-size:22px; font-weight:600; line-height:1.3; margin:0 0 4px; }
+  .jmp { background:var(--panel); border-left:3px solid var(--accent); padding:22px 24px 18px; border-radius:0 4px 4px 0; }
+  .tag { font-family:var(--sans); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+  .sub { font-style:italic; color:var(--muted); margin:0 0 10px; }
+  .meta { font-family:var(--sans); font-size:14px; color:var(--muted); margin:0 0 12px; }
+  .links { font-family:var(--sans); font-size:15px; display:flex; flex-wrap:wrap; gap:8px 18px; margin:0 0 10px; }
+  .pending { color:var(--muted); }
+  details { margin-top:4px; }
+  summary { font-family:var(--sans); font-size:15px; color:var(--accent); cursor:pointer; list-style:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary::before { content:"+ "; }
+  details[open] summary::before { content:"− "; }
+  details p { margin:10px 0 0; font-size:17px; }
+
+  ul.plain { list-style:none; padding:0; margin:0; display:grid; gap:4px; }
+  .talks h4 { font-size:17px; font-weight:600; margin:14px 0 6px; font-style:italic; }
+  .talks li { font-family:var(--sans); font-size:15px; display:flex; justify-content:space-between; gap:16px; }
+  .talks li time { color:var(--muted); white-space:nowrap; }
+  .teach li { font-family:var(--sans); font-size:15px; }
+  .teach .when { color:var(--muted); }
+  .refs { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; font-family:var(--sans); font-size:15px; }
+  .refs b { display:block; font-weight:600; }
+  .refs span { color:var(--muted); display:block; }
+  footer { font-family:var(--sans); font-size:13px; color:var(--muted); margin-top:40px; }
+
+  @media (max-width: 820px) {
+    body { font-size:17px; }
+    .wrap { grid-template-columns:1fr; gap:28px; padding-top:28px; }
+    aside { position:static; display:grid; grid-template-columns:120px 1fr; gap:4px 18px; align-items:start; }
+    aside img { grid-row:span 3; max-width:120px; }
+    aside h1 { margin-top:0; font-size:26px; }
+    .badge { font-size:11px; letter-spacing:.05em; padding:4px 8px; }
+    .contact, aside .btn { grid-column:1 / -1; }
+    .jmp { padding:18px 18px 14px; }
+    .talks li { flex-direction:column; gap:0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <img src="images/photo.jpg" alt="Portrait of Jae Hoon Lee">
+    <h1>Jae Hoon Lee</h1>
+    <p class="role">Ph.D. Candidate in Economics<br>The George Washington University</p>
+    <div class="badge">On the job market 2026–27</div>
+    <ul class="contact">
+      <li><span>Email</span><a href="mailto:jhoon0913@gwu.edu">jhoon0913@gwu.edu</a></li>
+      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/jhoon0913" target="_blank" rel="noopener">jhoon0913</a></li>
+      <li><span>Office</span>Department of Economics, GWU<br><span></span>Washington, DC</li>
+    </ul>
+    <a class="btn" href="files/JaeHoonLee_CV.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">I am a macroeconomist. My research studies how fiscal rules, sovereign debt, and financial institutions shape welfare and growth, with a focus on how government bonds serve as safe collateral.</p>
+      <p class="fields"><b>Fields:</b> Fiscal Policy and Sovereign Debt; Economic Growth and Structural Reforms<br>
+      <b>Expected Ph.D.:</b> May 2027</p>
+    </section>
+
+    <section id="research">
+      <h2>Job Market Paper</h2>
+      <article class="paper jmp">
+        <h3>Fiscal Rules When Sovereign Debt Is Risky but Convenient</h3>
+        <p class="sub">How Alternative Safe Collateral Shapes the Welfare Effects of Debt Brakes</p>
+        <p class="meta">Research support: George &amp; May Shiers Memorial Fund Fellowship (2026)</p>
+        <div class="links">
+          <a href="files/JaeHoonLee_JMP_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a>
+          <span class="pending">Paper: draft coming soon</span>
+        </div>
+        <details open>
+          <summary>Abstract</summary>
+          <p>Fiscal rules often use debt ceilings or sovereign spreads to discipline borrowing, but sovereign bonds also provide collateral and liquidity services that lower yields independently of default risk. I develop a two-period model that decomposes the welfare effects of fiscal limits into fiscal-smoothing, default-risk, and liquidity channels, and embed these mechanisms in a long-term sovereign-default model calibrated to Italy. At the benchmark, a rule based on observed market spreads and one based only on sovereign credit risk can be calibrated to generate nearly identical allocations and welfare. This equivalence is not portable across economies with different access to substitute safe collateral: applying the same common thresholds across members produces systematically different effective debt limits because convenience yields vary with collateral scarcity. More generally, fiscal limits reduce default risk but can also restrict fiscal flexibility and alter the supply and value of safe collateral. The results imply that fiscal-rule design should distinguish sovereign credit risk from the convenience value embedded in market borrowing costs.</p>
+        </details>
+      </article>
+
+      <h2>Working Papers</h2>
+      <article class="paper">
+        <h3>Financial Liberalization and Investment-Specific Technological Change</h3>
+        <p class="meta">Research support: GW-CIBER Research Funding (2024–2025)</p>
+        <details>
+          <summary>Abstract</summary>
+          <p>Does financial liberalization promote growth through investment-specific technological change (ISTC), and why do its benefits differ so sharply across countries? Using UNIDO INDSTAT2 data covering 22 manufacturing industries in 139 countries (1963–2021), I apply a local-projection difference-in-differences design to capital account liberalization episodes and show that liberalization differentially raises value-added growth in high-ISTC industries, but only in countries with strong institutions; in weak-institution countries the effect is absent. I rationalize this finding in a multi-sector overlapping-generations model in which a country-level pledgeability parameter governs entrepreneurs’ ability to borrow against ISTC-intensive capital. Calibrated to the estimated dynamic responses, the pledgeability channel accounts for roughly half of the observed strong–weak differential and generates a hump-shaped relationship between institutional quality and the gains from liberalization: amplification strengthens with pledgeability, then attenuates as constraints stop binding for the most technology-intensive sectors.</p>
+        </details>
+      </article>
+    </section>
+
+    <section id="talks" class="talks">
+      <h2>Presentations</h2>
+      <h4>Fiscal Rules When Sovereign Debt Is Risky but Convenient</h4>
+      <ul class="plain">
+        <li>Southern Economic Association 96th Annual Meeting, Houston <time>Nov 2026</time></li>
+        <li>Midwest Macroeconomics Meeting, Texas Tech University <time>Nov 2026</time></li>
+        <li>21st Economics Graduate Student Conference, Washington University in St. Louis <time>Oct 2026</time></li>
+        <li>Yonsei Emerging Researchers Forum, Yonsei University <time>Summer 2026</time></li>
+        <li>Macroeconomics Ph.D. Student Seminar, GWU <time>Spring 2026</time></li>
+      </ul>
+      <h4>Financial Liberalization and Investment-Specific Technological Change</h4>
+      <ul class="plain">
+        <li>Midwest Macroeconomics Meetings, Marquette University <time>Spring 2026</time></li>
+        <li>DMV Macro Ph.D. Symposium, Johns Hopkins University <time>Spring 2025</time></li>
+        <li>Macroeconomics Ph.D. Student Seminar, GWU <time>Fall 2024</time></li>
+      </ul>
+    </section>
+
+    <section id="policy">
+      <h2>Policy Experience</h2>
+      <p class="fields"><b>Fiscal Policy Forum, GW Institute for Korean Studies</b> — Graduate Assistant, Fall 2026<br>
+      Research support and program design for forums convening academia, international organizations, think tanks, and government on fiscal policy, debt sustainability, and U.S.–Korea policy.</p>
+    </section>
+
+    <section id="teaching" class="teach">
+      <h2>Teaching</h2>
+      <ul class="plain">
+        <li><b>Principles of Macroeconomics</b>, Teaching Assistant, GWU <span class="when">— six semesters, 2023–2026</span></li>
+        <li><b>Principles of Microeconomics</b>, Teaching Assistant, GWU <span class="when">— Fall 2022, Fall 2023, Fall 2026</span></li>
+        <li><b>Microeconomics; Welfare Economics</b>, Teaching Assistant, Yonsei University <span class="when">— 2019–2020</span></li>
+      </ul>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <div class="refs">
+        <div><b>Roberto Samaniego</b><span>The George Washington University</span><a href="mailto:roberto@gwu.edu">roberto@gwu.edu</a></div>
+        <div><b>Tomas Williams</b><span>The George Washington University</span><a href="mailto:tomaswilliams@gwu.edu">tomaswilliams@gwu.edu</a></div>
+        <div><b>Christopher Sleet</b><span>The George Washington University</span><a href="mailto:csleet@gwu.edu">csleet@gwu.edu</a></div>
+      </div>
+    </section>
+
+    <footer>Last updated October 2026</footer>
+  </main>
+</div>
+</body>
+</html>
