@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jae Hoon Lee · Economics</title>
 <meta name="description" content="Jae Hoon Lee — Ph.D. candidate in Economics at The George Washington University. Macroeconomics: fiscal policy, sovereign debt, growth.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Computer Modern (CMU Serif, SIL OFL 1.1), self-hosted: the LaTeX typeface of the papers */
+  @font-face { font-family:"CMU Serif"; src:url("fonts/cmu-serif/cmunrm.woff") format("woff"); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:"CMU Serif"; src:url("fonts/cmu-serif/cmunti.woff") format("woff"); font-weight:400; font-style:italic; font-display:swap; }
+  @font-face { font-family:"CMU Serif"; src:url("fonts/cmu-serif/cmunbx.woff") format("woff"); font-weight:600 700; font-style:normal; font-display:swap; }
+  @font-face { font-family:"CMU Serif"; src:url("fonts/cmu-serif/cmunbi.woff") format("woff"); font-weight:600 700; font-style:italic; font-display:swap; }
   /* Layout: fixed left identity column, scrolling research column; stacks on phones */
   :root {
     --bg: #fbfaf7;
@@ -18,15 +20,15 @@
     --rule: #ddd8cc;
     --accent: #1f4e79;
     --accent-soft: #e4ecf4;
-    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --serif: "CMU Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root { --bg:#14171d; --panel:#1b1f27; --ink:#e7e9ee; --muted:#9aa2b2; --rule:#2c3240; --accent:#8cb7e0; --accent-soft:#1f2a38; color-scheme: dark; }
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif); font-size:18px; line-height:1.6; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.55; }
   a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; }
   a:hover { text-decoration-thickness:2px; }
   a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
@@ -38,7 +40,7 @@
   .role { color:var(--muted); margin:0 0 18px; }
   .badge { display:inline-block; white-space:nowrap; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); padding:5px 10px; border-radius:3px; margin-bottom:18px; }
   .contact { list-style:none; padding:0; margin:0 0 22px; display:grid; gap:6px; }
-  .contact span { color:var(--muted); display:inline-block; width:62px; }
+  .contact span { color:var(--muted); display:inline-block; width:76px; }
   .btn { display:inline-block; font-weight:500; text-decoration:none; border:1px solid var(--accent); color:var(--accent); padding:8px 16px; border-radius:3px; }
   .btn:hover { background:var(--accent); color:var(--bg); }
 
@@ -65,7 +67,7 @@
   summary::-webkit-details-marker { display:none; }
   summary::before { content:"+ "; }
   details[open] summary::before { content:"− "; }
-  details p { margin:10px 0 0; font-size:17px; }
+  details p { margin:10px 0 0; font-size:18px; }
 
   ul.plain { list-style:none; padding:0; margin:0; display:grid; gap:4px; }
   .talks h4 { font-size:17px; font-weight:600; margin:14px 0 6px; font-style:italic; }
